@@ -1,0 +1,19 @@
+extends layouts/main.pug
+
+block content
+    .w-header
+         .w-header__back
+            form(action="/" method="get")
+                input(type="submit" value="←")
+         .w-header__title 메모 작성
+
+    .w-content
+        form(action="/write" method="post")
+            .title
+                label TITLE
+                input(type="text" name="title" placeholder="title...")
+            .list
+                label LIST
+                input(type="text" name="list" placeholder="list...")
+            .send
+                input(type="submit" value="V")

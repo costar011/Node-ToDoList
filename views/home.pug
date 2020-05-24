@@ -1,0 +1,21 @@
+extends layouts/main.pug
+
+block content
+    .box
+        from(action="/", method="get")
+            input.box__list(type="text")
+            input(type="submit" value="OK")
+    .main
+        form(action="/write", method="get")
+            input(type="submit" value="메모 추가하기")
+            
+    .list
+        each list in datalist
+            .list__box
+                form(action="/delete", method="post")
+                    .list__box-left
+                        input(type="hidden" name="id" value=`${list.id}`)
+                        .list= list.list
+                        .title= list.title
+                    .list__box-right
+                        input(type="submit" value="X")
